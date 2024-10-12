@@ -1,13 +1,13 @@
-package com.upiiz.categorias;
+package com.upiiz.discounts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CategoriasApplication {
+public class DiscountsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CategoriasApplication.class, args);
+		SpringApplication.run(DiscountsApplication.class, args);
 	}
 
 }

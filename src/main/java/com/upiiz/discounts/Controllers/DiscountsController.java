@@ -1,4 +1,4 @@
-package com.upiiz.categorias.Controllers;
+package com.upiiz.discounts.Controllers;
 
 import java.util.List;
 
@@ -13,39 +13,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.upiiz.categorias.Models.Categoria;
-import com.upiiz.categorias.Services.CategoriasService;
+import com.upiiz.discounts.Models.Discounts;
+import com.upiiz.discounts.Services.DiscountsService;
 
 @RestController
-@RequestMapping("/api/v1/categorias")
-public class CategoriasController {
+@RequestMapping("/api/v1/discounts")
+public class DiscountsController {
     @Autowired
-    private CategoriasService categoriasService;
+    private DiscountsService discountsService;
 
     @GetMapping()
-    public ResponseEntity<List<Categoria>> getCategorias() {
-        return ResponseEntity.ok(categoriasService.getAllCategorias());
+    public ResponseEntity<List<Discounts>> getdiscounts() {
+        return ResponseEntity.ok(discountsService.getAlldiscounts());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Categoria> getCategoria(@PathVariable Long id) {
-        return ResponseEntity.ok(categoriasService.getCategoriaById(id));
+    public ResponseEntity<Discounts> getCategoria(@PathVariable Long id) {
+        return ResponseEntity.ok(discountsService.getCategoriaById(id));
     }
 
     @PostMapping()
-    public ResponseEntity<Categoria> addCategoria(@RequestBody Categoria categoria) {
-        return ResponseEntity.ok(categoriasService.createCategoria(categoria));
+    public ResponseEntity<Discounts> addCategoria(@RequestBody Discounts categoria) {
+        return ResponseEntity.ok(discountsService.createCategoria(categoria));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Categoria> updateCategoria(@RequestBody Categoria categoria, @PathVariable Long id) {
+    public ResponseEntity<Discounts> updateCategoria(@RequestBody Discounts categoria, @PathVariable Long id) {
         categoria.setId(id);
-        return ResponseEntity.ok(categoriasService.updateCategoria(categoria));
+        return ResponseEntity.ok(discountsService.updateCategoria(categoria));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarCategoria(@PathVariable Long id) {
-        categoriasService.deleteCategoria(id);
+        discountsService.deleteCategoria(id);
         return ResponseEntity.noContent().build();
     }
 
